@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sudoku Jinja</title>
+	<style>
+		h1{
+		text-align: center;
+		color: black;
+		font-size: 20px;
+	}
+
+	table {
+  		margin: auto;
+  		color: black;	
+
+	}
+	
+	input{
+		
+		width: 22px;
+		height: 22px;
+		padding: 10px;
+		text-align: center;
+
+	}
+
+	td {
+	 height:30px;
+	 width:30px;
+	 border: 1px solid;
+	 text-align:center;
+	}
+
+	td:nth-child(3n) {
+	 border-right:solid black;
+	}
+	td:nth-child(9n) {
+	 border-right: transparent;
+	}
+
+	tr:first-child {
+	 border-top:solid black;
+	}
+
+	tr:nth-child(3n) td {
+	 border-bottom:solid black;
+	}
+
+	tr:nth-child(9n) td {
+	 border-bottom:transparent;
+	}
+	.celda{
+		background-color: grey;
+	}
+
+
+	</style>
+</head>
+<body>
+	<h1> Sudoku Jinja </h1>
+	<table id="sudoku" border= 1>
+	{% for i in range (9) %}
+			<tr>
+		{% for j in range (9) %}
+			{% set l=(j+1)+(i*7)%}
+				{% if i*10+j in numeros.keys() %}
+					<td class="celda">{{numeros[i*10+j]}}</td>
+				{% else %}
+					<td></td>
+				{% endif %}
+		{% endfor %}
+			</tr>
+	{% endfor %}
+	</table>
+</body>
+</html>

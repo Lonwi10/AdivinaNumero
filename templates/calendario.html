@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calendario</title>
+</head>
+<style>
+	table{
+		text-align: center;
+
+	}
+	h1 {
+		text-align: center;
+		color: white;
+	}
+
+	#calendario {
+		border: 2px solid white;
+		text-align: center;
+		height: 400px;
+	}
+	
+	#calendario tr {
+		border: 2px solid white;
+		text-align: center;
+		color: white;
+
+	}
+	
+	#calendario td {
+		border: 2px solid white;
+	}
+
+	.dias {
+		background-color: grey;
+	}
+
+
+
+
+</style>
+<body background = "http://www.hutui6.com/data/out/21/67946789-black-abstract-wallpapers.jpg">
+	<h1>Calendario con Jinja</h1>	
+
+	<table id="calendario" border = 1 style="width: 100%">
+	{% set i=1%}
+	{% set j=1%}
+	
+
+	{% for i in range (5) %}
+			<tr>
+		{% for j in range (7) %}
+			{% set l=(j+1)+(i*7)%}
+			{% if l <= 31 %}
+				{% if l in dias %}
+					<td class="dias">{{l}}</td>
+				{% else %}
+					<td>{{l}}</td>
+				{% endif %}
+			{% endif %}
+		{% endfor %}
+			</tr>
+	{% endfor %}
+	</table>
+</body>
+</html>

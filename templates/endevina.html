@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Adivina el numero</title>
+</head>
+<body>
+	<h2> Adivina el numero </h2>
+	<h5> He pensado un numero del 1 al 99 </h5>
+	<div class="missatge">
+        {{mensaje|safe}}
+    </div>	
+	<form method="post">
+		Introduce un numero <input type="text" name="number">
+        <input type="submit">
+    </form>
+</body>
+</html>
